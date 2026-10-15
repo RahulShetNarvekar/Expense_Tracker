@@ -1,7 +1,6 @@
 import express from 'express';
 import cors from 'cors';
 import 'dotenv/config';
-import { connect } from 'mongoose';
 import { connectDB } from './config/db.js';
 import userRouter from './routes/userRoute.js';
 import incomeRouter from './routes/incomeRoute.js';

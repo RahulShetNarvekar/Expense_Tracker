@@ -411,38 +411,38 @@ export const loginStyles = {
 // Styles for Navbar component
 export const navbarStyles = {
   // Layout and container styles
-  header: "sticky top-0 z-50 bg-white border-b border-gray-100 shadow-sm",
-  container: "flex items-center justify-between px-4 py-3 md:px-8 max-w-7xl mx-auto",
+  header: "sticky top-0 z-50 bg-white/85 backdrop-blur-md border-b border-slate-200/70 shadow-xs transition-all duration-300",
+  container: "flex items-center justify-between px-4 py-2.5 md:px-8 max-w-7xl mx-auto",
   
   // Logo styles
-  logoContainer: "flex items-center gap-0 cursor-pointer",
-  logoImage: "w-15 h-15 rounded-xl overflow-hidden",
+  logoContainer: "flex items-center gap-3 cursor-pointer group select-none transition-transform duration-200 hover:scale-[1.01]",
+  logoImage: "relative flex items-center justify-center",
   
   // Text styles
-  logoText: "lg:text-3xl md:text-3xl text-2xl text-gray-900 font-[550] lobster-regular",
+  logoText: "text-xl md:text-2xl font-extrabold tracking-tight text-slate-800 flex items-center gap-1.5",
   
   // User profile styles
   userContainer: "relative",
-  userButton: "flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-gray-50 transition-colors",
-  userAvatar: "w-9 h-9 flex items-center justify-center rounded-full bg-gradient-to-br from-teal-600 to-cyan-500 text-white font-bold text-lg",
-  statusIndicator: "absolute -bottom-1 -right-1 w-3 h-3 bg-green-500 rounded-full border-2 border-white",
-  userTextContainer: "text-left hidden md:block",
-  userName: "text-sm font-medium text-gray-800 truncate max-w-[120px]",
-  userEmail: "text-xs text-gray-500 truncate max-w-[120px]",
-  chevronIcon: (isOpen) => `w-4 h-4 text-gray-500 transition-transform ${isOpen ? "rotate-180" : ""}`,
+  userButton: "flex items-center gap-3 px-3 py-1.5 rounded-full bg-slate-50/90 hover:bg-slate-100/90 border border-slate-200/80 transition-all duration-200 shadow-2xs hover:shadow-xs group",
+  userAvatar: "w-8 h-8 md:w-9 md:h-9 flex items-center justify-center rounded-full bg-gradient-to-tr from-teal-600 via-teal-500 to-emerald-400 text-white font-bold text-sm shadow-xs ring-2 ring-white",
+  statusIndicator: "absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 bg-emerald-500 rounded-full border-2 border-white ring-1 ring-emerald-400/30",
+  userTextContainer: "text-left hidden md:block leading-tight",
+  userName: "text-xs font-semibold text-slate-800 truncate max-w-[130px] group-hover:text-teal-700 transition-colors",
+  userEmail: "text-[11px] text-slate-400 truncate max-w-[140px]",
+  chevronIcon: (isOpen) => `w-4 h-4 text-slate-400 transition-transform duration-200 ${isOpen ? "rotate-180 text-teal-600" : "group-hover:text-slate-600"}`,
   
   // Dropdown menu styles
-  dropdownMenu: "absolute top-14 right-0 w-56 bg-white rounded-xl shadow-lg border border-gray-100 z-50",
-  dropdownHeader: "px-4 py-3 border-b border-gray-100",
-  dropdownAvatar: "w-10 h-10 rounded-full bg-gradient-to-br from-teal-600 to-cyan-500 flex items-center justify-center text-white font-bold text-lg",
-  dropdownName: "text-sm text-gray-800 ",
-  dropdownEmail: "text-xs text-gray-500",
+  dropdownMenu: "absolute top-13 right-0 w-60 bg-white/95 backdrop-blur-md rounded-2xl shadow-xl border border-slate-100 p-2 z-50 animate-in fade-in slide-in-from-top-2 duration-200",
+  dropdownHeader: "px-3 py-2.5 border-b border-slate-100 mb-1",
+  dropdownAvatar: "w-9 h-9 rounded-full bg-gradient-to-tr from-teal-600 via-teal-500 to-emerald-400 flex items-center justify-center text-white font-bold text-sm shadow-xs",
+  dropdownName: "text-sm font-semibold text-slate-800 truncate",
+  dropdownEmail: "text-xs text-slate-400 truncate",
   
   // Menu items
-  menuItemContainer: "p-1.5",
-  menuItem: "w-full px-4 py-3 text-left hover:bg-gray-50 text-sm text-gray-700 flex items-center gap-3 rounded-lg",
-  menuItemBorder: "p-1.5 border-t border-gray-100",
-  logoutButton: "flex w-full items-center gap-3 px-4 py-3 text-sm hover:bg-red-50 text-red-600 rounded-lg"
+  menuItemContainer: "space-y-1",
+  menuItem: "w-full px-3 py-2 text-left hover:bg-slate-50 text-sm font-medium text-slate-700 hover:text-teal-600 flex items-center gap-2.5 rounded-xl transition-colors",
+  menuItemBorder: "pt-1 mt-1 border-t border-slate-100",
+  logoutButton: "flex w-full items-center gap-2.5 px-3 py-2 text-sm font-medium hover:bg-red-50 text-red-600 rounded-xl transition-colors"
 };
 
 
@@ -540,43 +540,43 @@ export const sidebarStyles = {
   },
   
   sidebarInner: {
-    base: "bg-white border-r  border-gray-200 shadow-md h-full flex flex-col"
+    base: "bg-white/95 backdrop-blur-md border-r border-slate-200/80 shadow-xs h-full flex flex-col"
   },
   
   // User profile section
   userProfileContainer: {
-    base: "p-4 border-b pt-20 md:pt-5 lg:pt-5 xl:pt-5 border-gray-100",
+    base: "p-4 border-b pt-20 md:pt-5 lg:pt-5 xl:pt-5 border-slate-100",
     collapsed: "px-3",
     expanded: "px-6"
   },
   
   userInitials: {
-    base: "w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-400 to-teal-500 flex items-center justify-center text-white font-bold text-xl"
+    base: "w-12 h-12 rounded-2xl bg-gradient-to-tr from-teal-600 via-teal-500 to-emerald-400 flex items-center justify-center text-white font-bold text-xl shadow-xs ring-2 ring-white"
   },
   
   // Menu items
   menuList: {
-    base: "space-y-1 px-2"
+    base: "space-y-1.5 px-3"
   },
   
   menuItem: {
-    base: "relative flex items-center gap-3 py-3 rounded-xl font-medium transition-all duration-200",
-    active: "text-teal-600 bg-teal-50",
-    inactive: "text-gray-600 hover:text-teal-700 hover:bg-gray-50",
-    collapsed: "justify-center px-0 mx-2",
-    expanded: "px-4"
+    base: "relative flex items-center gap-3 py-2.5 rounded-xl font-medium transition-all duration-200",
+    active: "text-teal-700 bg-gradient-to-r from-teal-50 to-emerald-50/70 font-semibold shadow-2xs border-l-2 border-teal-500",
+    inactive: "text-slate-600 hover:text-slate-900 hover:bg-slate-50/80 font-medium",
+    collapsed: "justify-center px-0 mx-1",
+    expanded: "px-3.5"
   },
   
   menuIcon: {
     active: "text-teal-600",
-    inactive: "text-gray-500"
+    inactive: "text-slate-400 group-hover:text-slate-600"
   },
   
-  activeIndicator: "absolute right-4 w-2 h-2 bg-teal-400 rounded-full animate-ping",
+  activeIndicator: "absolute right-3.5 w-1.5 h-1.5 bg-teal-500 rounded-full",
   
   // Toggle button
   toggleButton: {
-    base: "absolute -right-3 top-12 z-20 w-6 h-6 bg-white border border-gray-300 rounded-full flex items-center justify-center text-gray-500 hover:text-teal-600 hover:border-teal-400 hover:bg-teal-50 transition-all"
+    base: "absolute -right-3 top-12 z-20 w-6 h-6 bg-white border border-slate-200 shadow-xs rounded-full flex items-center justify-center text-slate-400 hover:text-teal-600 hover:border-teal-400 hover:bg-teal-50 transition-all"
   },
   
   // Footer section
@@ -631,28 +631,36 @@ export const cn = (...classes) => classes.filter(Boolean).join(" ");
 export const styles = {
   // Layout and Container Styles
   layout: {
-    root: "min-h-screen bg-gradient-to-br from-gray-50 to-gray-100",
+    root: "min-h-screen bg-slate-50/70",
     mainContainer: (sidebarCollapsed) => 
-      `p-4 pt-6 transition-all duration-300 ${sidebarCollapsed ? 'lg:ml-20' : 'lg:ml-64'}`,
+      `p-4 md:p-6 pt-6 transition-all duration-300 ${sidebarCollapsed ? 'lg:ml-20' : 'lg:ml-64'}`,
   },
 
   // Header Styles
   header: {
     container: "flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4",
-    title: "text-2xl font-bold text-gray-800",
-    subtitle: "text-gray-600",
+    title: "text-2xl font-bold text-slate-800 tracking-tight",
+    subtitle: "text-slate-500 text-sm",
   },
 
   // Stat Card Styles
   statCards: {
     grid: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 mb-6",
-    card: "bg-white p-5 rounded-2xl shadow-sm border border-gray-100",
+    card: "bg-white p-5 rounded-2xl shadow-xs border border-slate-100 hover:shadow-md hover:border-slate-200/80 transition-all duration-300 group",
     cardHeader: "flex justify-between items-start",
-    cardTitle: "text-sm text-gray-600",
-    cardValue: "text-2xl font-bold text-gray-800 mt-1",
-    iconContainer: (color) => `bg-${color}-100 p-2 rounded-lg`,
-    icon: (color) => `w-5 h-5 text-${color}-600`,
-    cardFooter: "text-xs text-gray-500 mt-3",
+    cardTitle: "text-xs font-semibold uppercase tracking-wider text-slate-500",
+    cardValue: "text-2xl font-extrabold text-slate-800 mt-1.5 tracking-tight",
+    iconContainer: (color) => {
+      const colorMap = {
+        green: "bg-emerald-50 text-emerald-600 ring-1 ring-emerald-500/20",
+        orange: "bg-orange-50 text-orange-600 ring-1 ring-orange-500/20",
+        teal: "bg-teal-50 text-teal-600 ring-1 ring-teal-500/20",
+        blue: "bg-cyan-50 text-cyan-600 ring-1 ring-cyan-500/20",
+      };
+      return `${colorMap[color] || 'bg-slate-50 text-slate-600 ring-1 ring-slate-200'} p-2.5 rounded-xl shadow-2xs group-hover:scale-110 transition-transform duration-300`;
+    },
+    icon: (color) => `w-5 h-5`,
+    cardFooter: "text-xs text-slate-500 mt-3 pt-2 border-t border-slate-50 flex items-center justify-between",
   },
 
   // Grid Layout

@@ -4,7 +4,7 @@ import {GAUGE_COLORS, COLORS, INCOME_CATEGORY_ICONS, EXPENSE_CATEGORY_ICONS} fro
 import { useOutletContext } from "react-router-dom";
 import { calculateData, getPreviousTimeFrameRange, getTimeFrameRange } from "../components/Helpers";
 import axios from "axios";
-import { ArrowDown, BarChart2, ChevronDown, ChevronUp, IndianRupee, TrendingUp as ProfitIcon, PieChart as PiechartIcon, PiggyBank, Plus, ShoppingCart, TrendingDown, TrendingUp, Wallet, PieChartIcon } from "lucide-react";
+import { ArrowDown, CreditCard, BarChart2, ChevronDown, ChevronUp, IndianRupee, TrendingUp as ProfitIcon, PieChart as PieChartIcon, PiggyBank, Plus, ShoppingCart, TrendingDown, TrendingUp, Wallet } from "lucide-react";
 import FinancialCard from "../components/FinancialCard";
 import { BarChart, Cell, Legend, Pie, PieChart, ResponsiveContainer, Tooltip } from "recharts";
 import GaugeCard from "../components/GaugeCard";
@@ -398,7 +398,7 @@ const Dashboard = () => {
       <FinancialCard
         icon={
           <div className={dashboardStyles.arrowDownIconContainer}>
-            <ArrowDown className="w-5 h-5 text-orange-600" />
+            <CreditCard className="w-5 h-5 text-orange-600" />
           </div>
         }
         label={`${timeFrameRange.label} Expenses`}

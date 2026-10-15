@@ -2,13 +2,13 @@ import React, { useRef, useState, useEffect } from "react";
 import { sidebarStyles, cn } from "../assets/dummyStyles";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLocation, useNavigate, Link } from "react-router-dom";
-import { ArrowDown, ArrowUp, Home, User, X, LogOut, Menu, ChevronLeft } from "lucide-react";
+import { Wallet, CreditCard, Home, User, X, LogOut, Menu, ChevronLeft } from "lucide-react";
 
 
 const MENU_ITEMS = [
   { text: "Dashboard", path: "/", icon: <Home size={20} /> },
-  { text: "Income", path: "/income", icon: <ArrowUp size={20} /> },
-  { text: "Expenses", path: "/expense", icon: <ArrowDown size={20} /> },
+  { text: "Income", path: "/income", icon: <Wallet size={20} /> },
+  { text: "Expenses", path: "/expense", icon: <CreditCard size={20} /> },
   { text: "Profile", path: "/profile", icon: <User size={20} /> },
 ];
 

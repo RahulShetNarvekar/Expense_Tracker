@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f8fafc;
+  color: #0f172a;
+}
+
 .custom-scrollbar::-webkit-scrollbar {
   width: 6px;
 }

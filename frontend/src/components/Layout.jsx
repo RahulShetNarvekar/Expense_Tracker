@@ -2,7 +2,7 @@ import React, {Activity, useState, useEffect, useMemo} from "react";
 import Navbar from "./Navbar";
 import Sidebar from "./Sidebar";
 import {styles} from "../assets/dummyStyles" ;
-import { ArrowUp, Car, CreditCard, Gift, Home, PiggyBank, ShoppingCart, Utensils, Zap, IndianRupee, ArrowDown, TrendingUp, Clock, RefreshCw, Info, ChevronUp, ChevronDown, PieChart } from "lucide-react";
+import { ArrowUp, Wallet, Car, CreditCard, Gift, Home, PiggyBank, ShoppingCart, Utensils, Zap, IndianRupee, ArrowDown, TrendingUp, TrendingDown, Clock, RefreshCw, Info, ChevronUp, ChevronDown, PieChart } from "lucide-react";
 import { Outlet } from "react-router-dom";
 import axios from "axios";
 
@@ -218,11 +218,24 @@ const Layout = ({ onLogout, user}) => {
       .filter((t) => t.type === "expense")
       .reduce((sum, t) => sum + Number(t.amount), 0);
 
+    const previous30DaysIncome = previous30DaysTransactions
+      .filter((t) => t.type === "income")
+      .reduce((sum, t) => sum + Number(t.amount), 0);
+
     const expenseChange =
       previous30DaysExpenses > 0
         ? Math.round(
             ((last30DaysExpenses - previous30DaysExpenses) /
               previous30DaysExpenses) *
+              100
+          )
+        : 0;
+
+    const incomeChange =
+      previous30DaysIncome > 0
+        ? Math.round(
+            ((last30DaysIncome - previous30DaysIncome) /
+              previous30DaysIncome) *
               100
           )
         : 0;
@@ -238,6 +251,7 @@ const Layout = ({ onLogout, user}) => {
       last30DaysCount: last30DaysTransactions.length,
       savingsRate,
       expenseChange,
+      incomeChange,
     };
   }, [transactions]);
 
@@ -333,11 +347,15 @@ const Layout = ({ onLogout, user}) => {
               </p>
             </div>
             <div className={styles.statCards.iconContainer("green")}>
-              <ArrowUp className={styles.statCards.icon("green")} />
+              <Wallet className={styles.statCards.icon("green")} />
             </div>
           </div>
           <p className={styles.statCards.cardFooter}>
-            <span className="text-green-600 font-medium">+12.5%</span> from last month
+            <span className={`${stats.incomeChange >= 0 ? "text-green-600" : "text-red-500"} font-medium`}>
+              {stats.incomeChange > 0 ? "+" : ""}
+              {stats.incomeChange}%
+            </span>{" "}
+            from last month
           </p>
         </div>
 
@@ -351,11 +369,11 @@ const Layout = ({ onLogout, user}) => {
               </p>
             </div>
             <div className={styles.statCards.iconContainer("orange")}>
-              <ArrowDown className={styles.statCards.icon("orange")} />
+              <CreditCard className={styles.statCards.icon("orange")} />
             </div>
           </div>
           <p className={styles.statCards.cardFooter}>
-            <span className={`${styles.colors.expenseChange(stats.expenseChange)} front-medium`}>
+            <span className={`${styles.colors.expenseChange(stats.expenseChange)} font-medium`}>
               {stats.expenseChange > 0 ? "+" : ""}
               {stats.expenseChange}%
             </span>{" "}

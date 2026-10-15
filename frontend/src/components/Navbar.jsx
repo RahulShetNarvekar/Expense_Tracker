@@ -70,9 +70,19 @@ useEffect(() => {
           className={navbarStyles.logoContainer}
         >
           <div className={navbarStyles.logoImage}>
-            <img src={img1} alt="logo" />
+            <div className="absolute -inset-0.5 bg-gradient-to-tr from-teal-500 to-emerald-400 rounded-xl blur-xs opacity-40 group-hover:opacity-75 transition duration-300"></div>
+            <img 
+              src={img1} 
+              alt="Expense Tracker Logo" 
+              className="relative w-9 h-9 md:w-10 md:h-10 rounded-xl object-contain shadow-xs bg-white/90 p-0.5 border border-teal-500/20 group-hover:scale-105 transition-transform duration-300"
+            />
           </div>
-          <span className={navbarStyles.logoText}>Expense Tracker</span>
+          <div className="flex flex-col">
+            <span className={navbarStyles.logoText}>
+              <span>Expense</span>
+              <span className="bg-gradient-to-r from-teal-600 via-teal-500 to-emerald-500 bg-clip-text text-transparent">Tracker</span>
+            </span>
+          </div>
         </div>
 
         {/* User Section */}
