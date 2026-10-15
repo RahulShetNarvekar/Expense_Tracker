@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { loginStyles } from '../assets/dummyStyles'
 import { Eye, EyeOff, Lock, Mail, User } from 'lucide-react'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 
-const Login = ({onLogin, API_URL = "http://localhost:4000"}) => {
+const Login = ({ onLogin, API_URL = "http://localhost:4000" }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -31,7 +31,7 @@ const Login = ({onLogin, API_URL = "http://localhost:4000"}) => {
       console.error("Storage Error:", err);
     }
   }
-  
+
   //to login
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -58,14 +58,14 @@ const Login = ({onLogin, API_URL = "http://localhost:4000"}) => {
 
       if (!profile && token) {
         try {
-          profile = await fetchProfile(token); 
+          profile = await fetchProfile(token);
         } catch (fetchErr) {
           console.warn("Could not fetch profile after login token:", fetchErr);
           profile = { email };
         }
-      }   
+      }
 
-      if(!profile) profile = {email};
+      if (!profile) profile = { email };
       persistAuth(profile, token);
 
       if (typeof onLogin === "function") {
@@ -184,13 +184,12 @@ const Login = ({onLogin, API_URL = "http://localhost:4000"}) => {
                 Remember Me
               </label>
             </div>
-            
+
             <button
               type="submit"
               disabled={isLoading}
-              className={`${loginStyles.button} ${
-                isLoading ? loginStyles.buttonDisabled : ""
-              }`}
+              className={`${loginStyles.button} ${isLoading ? loginStyles.buttonDisabled : ""
+                }`}
             >
               {isLoading ? (
                 <>
@@ -205,6 +204,15 @@ const Login = ({onLogin, API_URL = "http://localhost:4000"}) => {
               )}
             </button>
           </form>
+
+          <div className={loginStyles.signUpContainer}>
+            <p className={loginStyles.signUpText}>
+              Don't have an account?{" "}
+              <Link to="/signup" className={loginStyles.signUpLink}>
+                Sign up
+              </Link>
+            </p>
+          </div>
         </div>
       </div>
     </div>

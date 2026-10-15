@@ -169,7 +169,7 @@ const App = () => {
   // transaction helpers
   const addTransaction = (newTransaction) =>
     setTransactions((p) => [newTransaction, ...p]);
-  const editTransaction = (id, updatedTransaction) =>
+    const editTransaction = (id, updatedTransaction) =>
     setTransactions((p) =>
       p.map((t) => (t.id === id ? { ...updatedTransaction, id } : t)),
     );

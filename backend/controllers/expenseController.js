@@ -143,8 +143,8 @@ export async function downloadExpenseExcel(req, res) {
 export async function getExpenseOverview(req, res) {
     try {
         const userId = req.user._id;
-        const { range = "monthly" } = res.query;
-        const {start, end} = getDateRange(Range);
+        const { range = "monthly" } = req.query;
+        const {start, end} = getDateRange(range);
 
         const expense = await expenseModel.find({
             userId,
@@ -154,7 +154,7 @@ export async function getExpenseOverview(req, res) {
         const totalExpense = expense.reduce((acc, cur) => acc + cur.amount, 0);
         const averageExpense = expense.length > 0 ? totalExpense / expense.length : 0;
         const numberOfTransactions = expense.length;
-        const recentTransactions = expense.Slice(0, 5);
+        const recentTransactions = expense.slice(0, 5);
 
         res.json({
             success: true,

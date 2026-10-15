@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 import { sidebarStyles, cn } from "../assets/dummyStyles";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLocation, useNavigate, Link } from "react-router-dom";
-import { ArrowDown, ArrowUp, Home, User, X, LogOut, Menu } from "lucide-react";
+import { ArrowDown, ArrowUp, Home, User, X, LogOut, Menu, ChevronLeft } from "lucide-react";
 
 
 const MENU_ITEMS = [
@@ -91,14 +91,12 @@ const Sidebar = ({ user, isCollapsed, setIsCollapsed }) => {
 
         <div className={sidebarStyles.sidebarInner.base}>
           <button onClick={toggleSidebar} className={sidebarStyles.toggleButton.base}>
-              <motion.div
-                initial={{ rotate: 0 }}
-                animate={{ rotate: isCollapsed ? 0 : 180 }}
-                transition={{ duration: 0.3 }}
-              >
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <polyline points={isCollapsed ? "9 18 15 12 9 6" : "15 18 9 12 15 6"}></polyline>
-              </svg>
+            <motion.div
+              animate={{ rotate: isCollapsed ? 180 : 0 }}
+              transition={{ duration: 0.3 }}
+              className="flex items-center justify-center"
+            >
+              <ChevronLeft size={14} />
             </motion.div>
           </button>
 
