@@ -24,18 +24,18 @@ const Navbar = ({ user: propUser, setUser, onLogout }) => {
     const fetchUserData = async () => {
       try {
         const token = localStorage.getItem("token");
-        if(!token) return;
-          const response = await axios.get(`${BASE_URL}/user/me`, {
-            headers: {Authorization: `Bearer ${token}`},
-          });
-          const userData = response.data.user || response.data;
-          setUser(userData);
+        if (!token) return;
+        const response = await axios.get(`${BASE_URL}/user/me`, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        const userData = response.data.user || response.data;
+        setUser(userData);
       } catch (error) {
         console.error("Failed to load profile: ", error);
       }
     };
 
-    if(!propUser) {
+    if (!propUser) {
       fetchUserData();
     }
   }, [propUser]);
@@ -49,31 +49,31 @@ const Navbar = ({ user: propUser, setUser, onLogout }) => {
     navigate("/login");
   };
 
-// closes the toggle menu if click outside the box
-useEffect(() => {
+  // closes the toggle menu if click outside the box
+  useEffect(() => {
     const handleClickOutside = (e) => {
       if (menuRef.current && !menuRef.current.contains(e.target)) {
         setMenuOpen(false);
       }
     };
-    
+
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
-}, []);
+  }, []);
 
   return (
     <header className={navbarStyles.header}>
       <div className={navbarStyles.container}>
         {/* Logo */}
-        <div 
-          onClick={() => navigate("/")} 
+        <div
+          onClick={() => navigate("/")}
           className={navbarStyles.logoContainer}
         >
           <div className={navbarStyles.logoImage}>
             <div className="absolute -inset-0.5 bg-gradient-to-tr from-teal-500 to-emerald-400 rounded-xl blur-xs opacity-40 group-hover:opacity-75 transition duration-300"></div>
-            <img 
-              src={img1} 
-              alt="Expense Tracker Logo" 
+            <img
+              src={img1}
+              alt="Expense Tracker Logo"
               className="relative w-9 h-9 md:w-10 md:h-10 rounded-xl object-contain shadow-xs bg-white/90 p-0.5 border border-teal-500/20 group-hover:scale-105 transition-transform duration-300"
             />
           </div>
@@ -126,11 +126,11 @@ useEffect(() => {
                 </div>
 
                 <div className={navbarStyles.menuItemContainer}>
-                  <button 
+                  <button
                     onClick={() => {
                       setMenuOpen(false);
                       navigate("/profile");
-                    }} 
+                    }}
                     className={navbarStyles.menuItem}
                   >
                     <User className="w-4 h-4" />
